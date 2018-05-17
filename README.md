@@ -8,4 +8,6 @@
 <a href="/sovellus1">sovellus1</a>  
 ## Tehtävä 1.4 - Oliot taulukkoon  
 <a href="/sovellus1">sovellus1</a>  
+## Tehtävä 1.5  
+<a href="/sovellus1">sovellus1</a>  
 
