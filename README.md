@@ -4,4 +4,6 @@
 <a href="/sovellus1">sovellus1</a>  
 ## Tehtävä 1.2 - lisää komponentteja  
 <a href="/sovellus1">sovellus1</a>  
+## Tehtävä 1.3 - Tieto olioissa  
+<a href="/sovellus1">sovellus1</a>  
 
