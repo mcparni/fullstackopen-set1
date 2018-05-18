@@ -10,7 +10,11 @@
 <a href="/sovellus1">sovellus1</a>  
 ## Tehtävä 1.5  
 <a href="/sovellus1">sovellus1</a>  
-## Tehtävä 1.6 - Unicade osa 1  
+## Tehtävä 1.6 - Unicafe osa 1  
 <a href="/statistiikkasovellus">statistiikkasovellus</a>  
+## Tehtävä 1.7 - Unicafe osa 2  
+<a href="/statistiikkasovellus">statistiikkasovellus</a>  
+
+
 
 

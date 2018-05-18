@@ -27,6 +27,17 @@ class App extends React.Component {
     const feedback = (category) => () => { 
       this.setState({ [category]: this.state[category]+1 })
     }
+    const positiveFeedback = () => {
+      let all = this.state.good + this.state.neutral + this.state.bad
+      let percentage = this.state.good / all * 100
+      return isNaN(percentage) ? 0: percentage.toFixed(1)
+    }
+    const average = () => {
+      let all = this.state.good + this.state.neutral + this.state.bad
+      let sum = this.state.good + this.state.bad * -1
+      let avg = sum / all
+      return isNaN(avg) ? 0.0: avg.toFixed(1)
+    }
     const headings = {
       h1: 'Anna palautetta',
       h2: 'Statistiikka'
@@ -42,6 +53,8 @@ class App extends React.Component {
         <div>Hyvä: {this.state.good}</div>
         <div>Neutraali: {this.state.neutral}</div>
         <div>Huono: {this.state.bad}</div>
+        <div>Keskiarvo: {average()}</div>
+        <div>Positiivisia: {positiveFeedback()}%</div>
       </div>
     )
   }
