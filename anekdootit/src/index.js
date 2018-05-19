@@ -34,12 +34,49 @@ class App extends React.Component {
       }
     }
     
+    const getMostPopular = () => {
+      let highest = -1
+      let index = -1
+      let tempVoted = [...this.state.voted]
+      
+      tempVoted.forEach((value,key) => {
+        if(value > highest) {
+          highest = value
+          index = key
+        }
+      })
+      
+      return index
+    }
+    const hasVoted = () => {
+      let highest = 0
+      let tempVoted = [...this.state.voted]
+      
+      tempVoted.forEach((value,key) => {
+        if(value > highest) {
+          highest = value
+        }
+      })
+      return highest
+    }
+    let index = getMostPopular()
+    const voted = (hasVoted() === 0) ? false : true
     return (
       <div>
+        <h1>Anecdotes</h1>
         <p>{this.props.anecdotes[this.state.selected]}</p>
         <p>Has {this.state.voted[this.state.selected]} votes</p>
         <Button category="vote" current={this.state.selected} handleClick={clickHandler} text="Vote this!" />
         <Button category="next" current={this.state.selected} handleClick={clickHandler} text="Next anecdote" />
+        {voted ? (
+          <div>
+            <h2>Anecdote with the most votes:</h2>
+            <p>{this.props.anecdotes[index]}</p>
+            <p>Has {this.state.voted[index]} votes</p>
+          </div>
+        ) : (
+          <p></p>
+        )}      
       </div>
     )
   }
