@@ -19,7 +19,10 @@
 ## Tehtävä 1.9 - Unicafe osa 4
 <a href="/statistiikkasovellus">statistiikkasovellus</a>  
 ## Tehtävä 1.10 - Unicafe osa 5 && Tehtävä 1.11 - Unicafe osa 6
-<a href="/statistiikkasovellus">statistiikkasovellus</a>
+<a href="/statistiikkasovellus">statistiikkasovellus</a>  
+## Tehtävä 1.12 - Anekdootit osa1  
+<a href="/anekdootit">anekdootit</a>  
+
 
 
 
