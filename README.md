@@ -1,4 +1,4 @@
-# Osa1  
+# Fullstack Open 2018 - Osa1  
 Commit historysta näkee parhaiten jokaista tehtävää vastaavan kommentin ja sitä tehtävää vastaavan palautuksen.   
 ## Tehtävä 1.1 - Jako komponenteiksi,    
 ## Tehtävä 1.2 - lisää komponentteja,    
