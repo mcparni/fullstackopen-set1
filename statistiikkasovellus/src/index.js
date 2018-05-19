@@ -14,8 +14,14 @@ const H2 = (props) => {
 
 const Statistic = (props) => {
   const {text,data} = props
+  const style = {
+    fontWeight: 'normal'
+  }
   return (
-    <div>{text}: {data}</div>
+    <tr>
+      <th style={style}>{text}:</th>
+      <th style={style}>{data}</th>
+    </tr>
   )
 }
 
@@ -26,14 +32,19 @@ const Statistics = (props) => {
     avg,
     positives 
   } = props
+  const style = {
+    textAlign: 'left'
+  }
   return (
-    <div>
-      <Statistic text={texts[0]} data={state.good} />
-      <Statistic text={texts[1]} data={state.neutral} />
-      <Statistic text={texts[2]} data={state.bad} />
-      <Statistic text={texts[3]} data={avg} />
-      <Statistic text={texts[4]} data={positives} />
-    </div>
+    <table style={style}>
+      <tbody>
+        <Statistic text={texts[0]} data={state.good} />
+        <Statistic text={texts[1]} data={state.neutral} />
+        <Statistic text={texts[2]} data={state.bad} />
+        <Statistic text={texts[3]} data={avg} />
+        <Statistic text={texts[4]} data={positives} />
+      </tbody>
+    </table>
   )
 }
 
