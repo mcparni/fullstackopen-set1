@@ -12,6 +12,38 @@ const H2 = (props) => {
   )
 }
 
+const Statistic = (props) => {
+  const {text,data} = props
+  return (
+    <div>{text}: {data}</div>
+  )
+}
+
+const Statistics = (props) => {
+  const { 
+    texts, 
+    state,
+    avg,
+    positives 
+  } = props
+  return (
+    <div>
+      <Statistic text={texts[0]} data={state.good} />
+      <Statistic text={texts[1]} data={state.neutral} />
+      <Statistic text={texts[2]} data={state.bad} />
+      <Statistic text={texts[3]} data={avg} />
+      <Statistic text={texts[4]} data={positives} />
+    </div>
+  )
+}
+
+const Button = (props) => {
+  const { text, handleClick, category } = props
+  return (
+    <button onClick={handleClick(category)}>{text}</button>
+  )
+}
+
 class App extends React.Component {
   constructor() {
     super()
@@ -19,9 +51,7 @@ class App extends React.Component {
       good: 0,
       neutral:0,
       bad: 0
-    }
-    
-
+    } 
   }
   render() {
     const feedback = (category) => () => { 
@@ -30,7 +60,7 @@ class App extends React.Component {
     const positiveFeedback = () => {
       let all = this.state.good + this.state.neutral + this.state.bad
       let percentage = this.state.good / all * 100
-      return isNaN(percentage) ? 0: percentage.toFixed(1)
+      return isNaN(percentage) ? 0+'%': percentage.toFixed(1)+'%'
     }
     const average = () => {
       let all = this.state.good + this.state.neutral + this.state.bad
@@ -42,19 +72,27 @@ class App extends React.Component {
       h1: 'Anna palautetta',
       h2: 'Statistiikka'
     }
+    const texts = [
+      "Hyvä",
+      "Neutraali",
+      "Huono",
+      "Keskiarvo",
+      "Positiivisia"
+    ]
+    const categories = [
+      "good",
+      "neutral",
+      "bad"
+    ]
     return (
       
       <div>
         <H1 text={headings.h1} />
-        <button category="good" onClick={feedback('good')}>Hyvä</button>
-        <button category="neutral" onClick={feedback('neutral')}>Neutraali</button>
-        <button category="bad" onClick={feedback('bad')}>Huono</button>
+        <Button category={categories[0]} handleClick={feedback} text={texts[0]} />
+        <Button category={categories[1]} handleClick={feedback} text={texts[1]} />
+        <Button category={categories[2]} handleClick={feedback} text={texts[2]} />
         <H2 text={headings.h2} />
-        <div>Hyvä: {this.state.good}</div>
-        <div>Neutraali: {this.state.neutral}</div>
-        <div>Huono: {this.state.bad}</div>
-        <div>Keskiarvo: {average()}</div>
-        <div>Positiivisia: {positiveFeedback()}%</div>
+        <Statistics texts={texts} state={this.state} avg={average()} positives={positiveFeedback()} />
       </div>
     )
   }

@@ -14,6 +14,8 @@
 <a href="/statistiikkasovellus">statistiikkasovellus</a>  
 ## Tehtävä 1.7 - Unicafe osa 2  
 <a href="/statistiikkasovellus">statistiikkasovellus</a>  
+## Tehtävä 1.8 - Unicafe osa 3
+<a href="/statistiikkasovellus">statistiikkasovellus</a>  
 
 
 
