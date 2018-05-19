@@ -84,6 +84,7 @@ class App extends React.Component {
       "neutral",
       "bad"
     ]
+    const noStats = this.state.good === 0 && this.state.neutral === 0 && this.state.bad === 0 ? true : false
     return (
       
       <div>
@@ -92,7 +93,11 @@ class App extends React.Component {
         <Button category={categories[1]} handleClick={feedback} text={texts[1]} />
         <Button category={categories[2]} handleClick={feedback} text={texts[2]} />
         <H2 text={headings.h2} />
-        <Statistics texts={texts} state={this.state} avg={average()} positives={positiveFeedback()} />
+        {noStats ? (
+          <p>Ei vielä yhtään palautetta annettu.</p>
+        ) : (
+          <Statistics texts={texts} state={this.state} avg={average()} positives={positiveFeedback()} />
+        )}
       </div>
     )
   }
