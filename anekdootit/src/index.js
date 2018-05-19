@@ -2,9 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 const Button = (props) => {
-  const { text, handleClick, category } = props
+  const { text, handleClick, current, category } = props
   return (
-    <button onClick={handleClick(category)}>{text}</button>
+    <button onClick={handleClick(current, category)}>{text}</button>
   )
 }
 
@@ -16,21 +16,30 @@ class App extends React.Component {
       return Math.floor(Math.random() * (max - min + 1)) + min
     }
     this.state = {
-      selected: this.getRandomInteger(0,this.MAX)
+      selected: this.getRandomInteger(0,this.MAX),
+      voted : [0, 0, 0, 0, 0, 0]
     }
     
   }
 
   render() {
 
-    const clickHandler = (category) => () => { 
-      this.setState({ selected:  this.getRandomInteger(0,this.MAX) })
+    const clickHandler = (current, category) => () => {
+      if(category === 'next') {
+        this.setState({ selected:  this.getRandomInteger(0,this.MAX) })
+      } else {
+        let tempVoted = [...this.state.voted]
+        tempVoted[current] += 1
+        this.setState({ voted: tempVoted}) 
+      }
     }
     
     return (
       <div>
         <p>{this.props.anecdotes[this.state.selected]}</p>
-        <Button handleClick={clickHandler} text="Next anecdote" />
+        <p>Has {this.state.voted[this.state.selected]} votes</p>
+        <Button category="vote" current={this.state.selected} handleClick={clickHandler} text="Vote this!" />
+        <Button category="next" current={this.state.selected} handleClick={clickHandler} text="Next anecdote" />
       </div>
     )
   }

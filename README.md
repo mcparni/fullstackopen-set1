@@ -22,6 +22,9 @@
 <a href="/statistiikkasovellus">statistiikkasovellus</a>  
 ## Tehtävä 1.12 - Anekdootit osa1  
 <a href="/anekdootit">anekdootit</a>  
+## Tehtävä 1.13 - Anekdootit osa2  
+<a href="/anekdootit">anekdootit</a>  
+
 
 
 
